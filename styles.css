@@ -489,6 +489,79 @@ tbody td b { font-variant-numeric: tabular-nums; }
   background: rgba(0, 0, 0, 0.3);
 }
 
+/* ---------------- downloads table ---------------- */
+
+.dl-table td { vertical-align: top; }
+.dl-table td b { font-variant-numeric: tabular-nums; }
+.dl-table .badge {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7fe0b0;
+  background: rgba(62, 207, 142, 0.13);
+  border: 1px solid rgba(62, 207, 142, 0.3);
+  border-radius: 100px;
+  padding: 1px 7px;
+  margin-inline-start: 7px;
+  vertical-align: 1px;
+}
+.dl-table .file {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  word-break: break-all;
+}
+.dl-table code.sum {
+  display: block;
+  max-width: 34ch;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  word-break: break-all;
+  white-space: normal;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--text-dim);
+}
+.dl-table .btn { white-space: nowrap; }
+.dl-note { font-size: 0.82rem; color: var(--text-dim); margin: 16px 0 0; }
+
+/* Phones: the five-column table squeezes the hash into a sliver, so each
+   release becomes a card with the column names as labels. */
+@media (max-width: 640px) {
+  .dl-table { border: 0; background: none; overflow: visible; }
+  .dl-table table, .dl-table tbody, .dl-table tr, .dl-table td { display: block; width: 100%; }
+  .dl-table thead { display: none; }
+  .dl-table tr {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-raised);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .dl-table tbody tr + tr td { border-top: 0; }
+  .dl-table td { padding: 7px 0; border-top: 1px solid rgba(255, 255, 255, 0.045); }
+  .dl-table td:first-child { padding-top: 0; border-top: 0; }
+  .dl-table td:last-child { padding-bottom: 0; }
+  .dl-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 3px;
+  }
+  .dl-table td:first-child::before { display: none; }
+  .dl-table code.sum { max-width: none; }
+  .dl-table .btn { display: inline-block; }
+}
+
 /* ---------------- faq ---------------- */
 
 details {

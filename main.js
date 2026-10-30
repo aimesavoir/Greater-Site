@@ -12,6 +12,7 @@
     "nav.features": "المميزات",
     "nav.safety": "الأمان",
     "nav.install": "التثبيت",
+    "nav.downloads": "التنزيلات",
     "nav.faq": "الأسئلة الشائعة",
     "nav.download": "تنزيل",
 
@@ -143,6 +144,18 @@
     "faq.q9": "لماذا يحذّرني Windows من هذا التنزيل؟",
     "faq.a9": "لأن المُثبِّت غير موقّع رقميًا. شهادة التوقيع الرقمي تكلّف بضع مئات من الدولارات سنويًا، وصدر هذا الإصدار بدونها — لذلك لا يستطيع Windows عرض اسم ناشر موثّق، وليس لدى SmartScreen سجل تنزيلات يحكم به. النتيجة تحذير سمعة («تطبيق غير معروف»)، وليس كشف فيروس أبدًا. وبدل أن تثق به، يمكنك التحقق منه: بصمة SHA-256 المنشورة أعلاه تخص المُثبِّت نفسه الذي بُني واختُبر هنا. إن أنتج ملفك البصمة نفسها فهو مطابق بايتًا ببايت. وإن كنت تفضّل ألا تتجاوز تحذيرًا، فلا تثبّته — وهذا خيار معقول.",
 
+    "dl.title": "كل التنزيلات",
+    "dl.sub": "كل إصدار منشور يبقى متاحًا، فلا يحاصرك تحديث سيّئ. الصف الأول هو الإصدار الحالي، ولكل ملف بصمة SHA-256 خاصة به ليتحقّق منه منفردًا.",
+    "dl.h1": "الإصدار",
+    "dl.h2": "تاريخ الصدور",
+    "dl.h3": "الحجم",
+    "dl.h4": "SHA-256",
+    "dl.h5": "التنزيل",
+    "dl.latest": "الأحدث",
+    "dl.r1.date": "30 أكتوبر 2026",
+    "dl.r1.btn": "تنزيل",
+    "dl.note": "التنزيلات تأتي من صفحة الإصدارات على GitHub. إن ساء أداء إصدار، يبقى الإصدار السابق قابلًا للتنزيل هنا — والبصمة في الجدول أعلاه هي ما يجب أن يطابقه ملفك.",
+
     "cta.title": "اكتشف ما يستهلك قرصك فعلًا",
     "cta.sub": "خمس ثوانٍ للفحص. ودقيقة لاستعادة عشرات الغيغابايت.",
     "cta.button": "نزّل Greater لويندوز",
@@ -177,7 +190,25 @@
     if (label) label.textContent = ar ? "English" : "العربية";
     if (btn) btn.setAttribute("aria-label", ar ? "Switch to English" : "التبديل إلى العربية");
 
+    syncLabels();
+
     try { localStorage.setItem(STORE_KEY, lang); } catch (e) { /* private mode */ }
+  }
+
+  /* On narrow screens the downloads table becomes stacked cards, so every
+     cell needs its column name as a label. Take it from the (translated) th. */
+  function syncLabels() {
+    var table = document.querySelector(".dl-table table");
+    if (!table) return;
+    var heads = [];
+    table.querySelectorAll("thead th").forEach(function (th) {
+      heads.push(th.textContent.trim());
+    });
+    table.querySelectorAll("tbody tr").forEach(function (tr) {
+      Array.prototype.forEach.call(tr.children, function (td, i) {
+        if (heads[i]) td.setAttribute("data-label", heads[i]);
+      });
+    });
   }
 
   var stored = "en";
@@ -187,6 +218,7 @@
   } catch (e) { /* ignore */ }
   if (stored !== "ar") stored = "en";
   if (stored === "ar") apply("ar");
+  syncLabels();
 
   if (btn) {
     btn.addEventListener("click", function () {
