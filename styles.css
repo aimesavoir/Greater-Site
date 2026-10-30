@@ -447,6 +447,48 @@ tbody td b { font-variant-numeric: tabular-nums; }
 .req .ticks { margin: 0; }
 .req p { font-size: 0.88rem; color: var(--text-dim); margin: 0; }
 
+/* ---------------- "expect a Windows warning" box ---------------- */
+
+.warn {
+  margin-top: 26px;
+  background: rgba(240, 180, 41, 0.05);
+  border: 1px solid rgba(240, 180, 41, 0.26);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+}
+.warn h4 { color: #ffd166; margin-bottom: 10px; }
+.warn p { font-size: 0.9rem; color: #b7bfcc; margin: 0 0 10px; }
+.warn p:last-child { margin-bottom: 0; }
+.warn .ticks { margin: 4px 0 14px; }
+.warn .ticks li { font-size: 0.88rem; }
+.warn .ticks li::before { color: #ffd166; }
+
+.warn pre {
+  margin: 0 0 10px;
+  padding: 11px 13px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow-x: auto;
+}
+.warn pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  white-space: pre;
+}
+
+.hashline { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.warn code.hash {
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+  white-space: normal;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.3);
+}
+
 /* ---------------- faq ---------------- */
 
 details {

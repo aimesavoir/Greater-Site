@@ -259,7 +259,7 @@
             <span class="num">1</span>
             <div>
               <h4 data-t="install.s1.t">Download the installer</h4>
-              <p data-t="install.s1.b">About 4.8 MB. Windows may show a SmartScreen prompt for a new publisher — choose "More info" then "Run anyway".</p>
+              <p data-t="install.s1.b">About 4.8 MB. Your browser may warn that the file "isn't commonly downloaded" — that is expected for a new, unsigned installer. The box below explains it and how to verify the file.</p>
             </div>
           </div>
           <div class="step">
@@ -280,6 +280,22 @@
             <span data-t="install.cta">Download Greater 1.0.0</span>
           </a>
           <p class="meta" data-t="install.meta">Greater_1.0.0_x64-setup.exe · 4.8 MB · per-machine install</p>
+
+          <div class="warn">
+            <h4 data-t="warn.title">Expect a Windows warning — here is why</h4>
+            <p data-t="warn.body">The installer is not code-signed yet, so Windows has no publisher name to show and SmartScreen has no download history to go on. The message says <b>unrecognized app</b>, never <b>threat detected</b>. Two prompts can appear:</p>
+            <ul class="ticks">
+              <li data-t="warn.b1">In the browser: the download is marked "isn't commonly downloaded" — open the downloads list (<code>Ctrl</code>+<code>J</code>) and choose <b>Keep</b>.</li>
+              <li data-t="warn.b2">On launch: "Windows protected your PC" — click <b>More info</b>, then <b>Run anyway</b>.</li>
+            </ul>
+            <p data-t="warn.verify">You do not have to take that on trust. Compare the SHA-256 fingerprint of your file with the published one:</p>
+            <pre><code>Get-FileHash .\Greater_1.0.0_x64-setup.exe -Algorithm SHA256</code></pre>
+            <p class="hashline">
+              <span data-t="warn.hashLabel">Expected fingerprint:</span>
+              <code class="hash">4A6D1C7E6552D6E3CBF955C816EF5AB088F67C866808A49C34D5AA7EA66B567F</code>
+            </p>
+            <p class="meta" data-t="warn.link">The same hash ships with the release as SHA256SUMS.txt. A mismatch means the file was altered in transit — delete it and download again.</p>
+          </div>
         </div>
 
         <aside class="req">
@@ -341,6 +357,11 @@
       <details>
         <summary data-t="faq.q8">Is it free?</summary>
         <p data-t="faq.a8">Yes — download and use it at no cost, with no account and no nag screen.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q9">Why does Windows warn me about this download?</summary>
+        <p data-t="faq.a9">Because the installer is not code-signed. A code-signing certificate costs a few hundred dollars a year, and this release was published without one — so Windows cannot show a verified publisher name, and SmartScreen has no download history to judge the file by. The result is a reputation warning ("unrecognized app"), never a virus detection. Instead of trusting it, you can verify it: the SHA-256 fingerprint published above belongs to the exact installer built and tested here. If your file produces the same fingerprint, it is byte-for-byte identical. If you would rather not click past a warning, do not install it — that is a reasonable choice.</p>
       </details>
     </div>
   </section>
