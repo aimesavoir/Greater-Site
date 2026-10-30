@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greater — Fast Windows Disk Usage Analyzer</title>
+<meta name="description" content="Greater scans an entire Windows drive in seconds and shows what is big, what is junk, what is duplicated, and what file types eat the most space. Free download for Windows 10 and 11.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Greater — Fast Windows Disk Usage Analyzer">
+<meta property="og:description" content="Scan a whole drive in ~5 seconds. Find the biggest files, reclaim junk safely, remove duplicate copies, and see space by file type.">
+<meta property="og:image" content="https://aimesavoir.github.io/Greater-Site/img/explorer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top">
+      <img src="img/icon.png" alt="" width="30" height="30">
+      <span>Greater</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#features" data-t="nav.features">Features</a>
+      <a href="#safety" data-t="nav.safety">Safety</a>
+      <a href="#install" data-t="nav.install">Install</a>
+      <a href="#faq" data-t="nav.faq">FAQ</a>
+    </nav>
+    <div class="head-actions">
+      <button id="lang-toggle" class="lang-btn" type="button" aria-label="Switch language">
+        <span id="lang-label">العربية</span>
+      </button>
+      <a class="btn btn-primary btn-sm" href="https://github.com/aimesavoir/Greater-Site/releases/latest/download/Greater_1.0.0_x64-setup.exe" data-t="nav.download">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-t="hero.eyebrow">Windows disk usage analyzer</p>
+        <h1 data-t="hero.title">See exactly what is eating your disk — and get it back.</h1>
+        <p class="lead" data-t="hero.lead">
+          Greater scans an entire drive in about five seconds, then shows you what is big,
+          what is junk, what is duplicated, and what type of file takes the most space.
+          Nothing is ever deleted without you ticking it and confirming.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="https://github.com/aimesavoir/Greater-Site/releases/latest/download/Greater_1.0.0_x64-setup.exe">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4L11 13.6V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+            <span data-t="hero.cta">Download for Windows</span>
+          </a>
+          <p class="meta" data-t="hero.meta">Version 1.0.0 · 4.8 MB · Windows 10 &amp; 11 (64-bit)</p>
+        </div>
+        <ul class="hero-badges">
+          <li data-t="hero.badge1">No installer bloat</li>
+          <li data-t="hero.badge2">No account needed</li>
+          <li data-t="hero.badge3">Works without admin rights</li>
+        </ul>
+      </div>
+      <div class="hero-shot">
+        <div class="frame">
+          <img src="img/explorer.jpg" width="1800" height="1108"
+               alt="Greater's Explorer tab showing the largest files on drive C: after a 5.19 second scan of 1,480,612 files.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF STRIP ============ -->
+  <section class="proof">
+    <div class="wrap">
+      <p class="proof-note" data-t="proof.note">Measured on a real 887 GB system drive holding 1.48 million files.</p>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <b>5.2 s</b>
+          <span data-t="proof.1">to scan 1,480,612 files (866 GB)</span>
+        </div>
+        <div class="proof-item">
+          <b>155,543</b>
+          <span data-t="proof.2">junk files found in 3.5 s — 47.5 GB reclaimable</span>
+        </div>
+        <div class="proof-item">
+          <b>2,139</b>
+          <span data-t="proof.3">duplicate groups — 27.8 GB of wasted space</span>
+        </div>
+        <div class="proof-item">
+          <b>0.25 s</b>
+          <span data-t="proof.4">to permanently delete 3,000 files</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features" class="section">
+    <div class="wrap">
+      <h2 class="section-title" data-t="features.title">Four ways to look at your disk</h2>
+      <p class="section-sub" data-t="features.sub">Every tab answers a different question. Together they turn "my disk is full" into a list of files you can act on.</p>
+
+      <!-- 1. Explorer -->
+      <article class="feature">
+        <div class="feature-copy">
+          <span class="tag tag-blue" data-t="f1.tag">Explorer</span>
+          <h3 data-t="f1.title">What is big?</h3>
+          <p data-t="f1.body">The fastest way to find the giants. Greater walks the drive in parallel and streams results into a virtualized list while it is still scanning, so you never stare at an empty window.</p>
+          <ul class="ticks">
+            <li data-t="f1.b1">Largest files first, with a size bar and a percentage of the largest file, so outliers stand out instantly.</li>
+            <li data-t="f1.b2">Switch to <b>By folder</b> to see which directories carry the weight.</li>
+            <li data-t="f1.b3">Handles 600,000 rows smoothly — the list only renders what is on screen.</li>
+            <li data-t="f1.b4">Long paths, reparse points and permission-denied folders are handled without breaking the scan.</li>
+            <li data-t="f1.b5">Per-row actions: file info, open in Explorer, move to Recycle Bin, delete permanently.</li>
+          </ul>
+        </div>
+        <div class="frame">
+          <img src="img/explorer.jpg" width="1800" height="1108"
+               alt="Explorer tab: 1,480,612 files, 866 GB, largest files listed first.">
+        </div>
+      </article>
+
+      <!-- 2. Clean -->
+      <article class="feature reverse">
+        <div class="feature-copy">
+          <span class="tag tag-green" data-t="f2.tag">Clean</span>
+          <h3 data-t="f2.title">What is junk?</h3>
+          <p data-t="f2.body">A rule engine that only ever proposes files from known scratch locations — temp folders, caches, logs, and download leftovers. It is deliberately narrow: if a path is not on the list, it is never suggested.</p>
+          <ul class="ticks">
+            <li data-t="f2.b1">Two severities: <b>safe</b> (regenerated automatically) is preselected, <b>optional</b> (costs a re-download or rebuild) is opt-in.</li>
+            <li data-t="f2.b2">Files modified recently are skipped as "probably in use", so nothing breaks a running program.</li>
+            <li data-t="f2.b3">Results stream in live while the drive is still being walked.</li>
+            <li data-t="f2.b4">Reason badges explain why each file was flagged, and filter chips split safe from optional.</li>
+            <li data-t="f2.b5">Send to the Recycle Bin, or delete permanently when you are sure.</li>
+          </ul>
+        </div>
+        <div class="frame">
+          <img src="img/clean.jpg" width="1800" height="1108"
+               alt="Clean tab: 155,543 junk files found, 47.5 GB reclaimable, split into safe and optional categories.">
+        </div>
+      </article>
+
+      <!-- 3. Duplicates -->
+      <article class="feature">
+        <div class="feature-copy">
+          <span class="tag tag-amber" data-t="f3.tag">Duplicates</span>
+          <h3 data-t="f3.title">What is redundant?</h3>
+          <p data-t="f3.body">Copies of the same file pile up quietly: "photo (1).jpg", the same installer downloaded three times, project folders backed up by hand. Greater finds them without reading every byte on the disk.</p>
+          <ul class="ticks">
+            <li data-t="f3.b1">Groups by size first, then hashes only the candidates — so it stays fast on drives with millions of files.</li>
+            <li data-t="f3.b2">Hardlink-aware: a hardlinked pair is not counted as reclaimable space.</li>
+            <li data-t="f3.b3">Keeps one copy per group by <b>oldest</b>, <b>newest</b> or <b>shortest path</b>.</li>
+            <li data-t="f3.b4">The last copy of a group can never be deleted, by construction.</li>
+            <li data-t="f3.b5">Star any copy to override the keeper, group by group.</li>
+          </ul>
+        </div>
+        <div class="frame">
+          <img src="img/duplicates.jpg" width="1800" height="1108"
+               alt="Duplicates tab: 2,139 duplicate groups holding 27.8 GB of reclaimable space across 5,283 copies.">
+        </div>
+      </article>
+
+      <!-- 4. Statistics -->
+      <article class="feature reverse">
+        <div class="feature-copy">
+          <span class="tag tag-purple" data-t="f4.tag">Statistics</span>
+          <h3 data-t="f4.title">What type of file eats the space?</h3>
+          <p data-t="f4.body">One glance at the breakdown tells you whether the problem is video, images, archives, or a mountain of code and build output.</p>
+          <ul class="ticks">
+            <li data-t="f4.b1">Every file bucketed into Images, Videos, Audio, Documents, Archives, Executables, Code or Other.</li>
+            <li data-t="f4.b2">A stacked colour bar shows each category's share of the drive at a glance.</li>
+            <li data-t="f4.b3">The legend lists size, percentage and file count per category.</li>
+            <li data-t="f4.b4">Readouts for files scanned, elapsed time and the largest category.</li>
+          </ul>
+        </div>
+        <div class="frame">
+          <img src="img/statistics.jpg" width="1800" height="1108"
+               alt="Statistics tab: 1,480,703 files grouped into 8 file types totalling 867 GB, with a stacked colour bar.">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY ============ -->
+  <section id="safety" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title" data-t="safety.title">Built to be safe by default</h2>
+      <p class="section-sub" data-t="safety.sub">A cleaner that guesses is a cleaner that destroys things. Greater is built the other way round: it only offers what it can prove is disposable, and it always shows you the list first.</p>
+      <div class="cards">
+        <div class="card">
+          <h4 data-t="safety.c1.t">Whitelist, never blacklist</h4>
+          <p data-t="safety.c1.b">Junk rules match a fixed list of known scratch locations. A file that does not match is never proposed — there is no "probably junk" heuristic.</p>
+        </div>
+        <div class="card">
+          <h4 data-t="safety.c2.t">System files are hard-blocked</h4>
+          <p data-t="safety.c2.b">Page file, hibernation file, boot and BCD files, and System Volume Information are excluded before any rule runs. They cannot be selected, whatever the path looks like.</p>
+        </div>
+        <div class="card">
+          <h4 data-t="safety.c3.t">Nothing happens without a tick</h4>
+          <p data-t="safety.c3.b">Every delete starts from a visible list with checkboxes and a size total. Nothing runs on a timer, in the background, or on a guess.</p>
+        </div>
+        <div class="card">
+          <h4 data-t="safety.c4.t">Recycle Bin by default</h4>
+          <p data-t="safety.c4.b">The primary button is "Move to Recycle Bin". Permanent delete is a separate, clearly marked button with its own confirmation.</p>
+        </div>
+        <div class="card">
+          <h4 data-t="safety.c5.t">Live progress, real cancel</h4>
+          <p data-t="safety.c5.b">Bulk deletes run in a dialog that shows how many files are gone, which file is being deleted now, how much space is freed so far — and a Cancel button that actually stops within one batch.</p>
+        </div>
+        <div class="card">
+          <h4 data-t="safety.c6.t">Honest about failures</h4>
+          <p data-t="safety.c6.b">Files that cannot be removed are counted and reported, not silently skipped. Usually they are locked by a running program or owned by SYSTEM and need elevation.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title" data-t="speed.title">Deleting is not the slow part any more</h3>
+      <p class="section-sub" data-t="speed.sub">Two engines, chosen for the job. The shell is only used where it has to be.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-t="speed.h1">Engine</th>
+              <th data-t="speed.h2">Used for</th>
+              <th data-t="speed.h3">Measured speed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-t="speed.r1a">Parallel file deletion (up to 16 threads)</td>
+              <td data-t="speed.r1b">Delete permanently</td>
+              <td><b data-t="speed.r1c">3,000 files in 0.25 s</b></td>
+            </tr>
+            <tr>
+              <td data-t="speed.r2a">Windows shell batch delete</td>
+              <td data-t="speed.r2b">Move to Recycle Bin</td>
+              <td><b data-t="speed.r2c">~512 files/s</b> <span class="dim" data-t="speed.r2d">(the OS cost of recoverability)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTALL ============ -->
+  <section id="install" class="section">
+    <div class="wrap">
+      <h2 class="section-title" data-t="install.title">Install in under a minute</h2>
+      <p class="section-sub" data-t="install.sub">One signed installer. No account, no background service, no bundled extras.</p>
+
+      <div class="install-grid">
+        <div class="steps">
+          <div class="step">
+            <span class="num">1</span>
+            <div>
+              <h4 data-t="install.s1.t">Download the installer</h4>
+              <p data-t="install.s1.b">About 4.8 MB. Windows may show a SmartScreen prompt for a new publisher — choose "More info" then "Run anyway".</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">2</span>
+            <div>
+              <h4 data-t="install.s2.t">Run it</h4>
+              <p data-t="install.s2.b">It installs for all users into <code>C:\Program Files\Greater</code>, so Windows asks for administrator approval once. The WebView2 runtime is included in the installer if your machine does not have it.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">3</span>
+            <div>
+              <h4 data-t="install.s3.t">Pick a drive and go</h4>
+              <p data-t="install.s3.b">Choose your interface language and theme on first run, hover a drive card, and press Scan, Clean, Find duplicates or Analyze.</p>
+            </div>
+          </div>
+          <a class="btn btn-primary btn-lg" href="https://github.com/aimesavoir/Greater-Site/releases/latest/download/Greater_1.0.0_x64-setup.exe">
+            <span data-t="install.cta">Download Greater 1.0.0</span>
+          </a>
+          <p class="meta" data-t="install.meta">Greater_1.0.0_x64-setup.exe · 4.8 MB · per-machine install</p>
+        </div>
+
+        <aside class="req">
+          <h4 data-t="install.req.title">Requirements</h4>
+          <ul class="ticks">
+            <li data-t="install.req.1">64-bit Windows 10 (version 1809 or newer) or Windows 11</li>
+            <li data-t="install.req.2">WebView2 runtime — included in the installer</li>
+            <li data-t="install.req.3">No .NET, no Visual C++ redistributable, no Java</li>
+            <li data-t="install.req.4">NTFS, exFAT, FAT32 and network drives all supported</li>
+            <li data-t="install.req.5">Administrator rights only needed to install and to delete SYSTEM-owned files</li>
+          </ul>
+          <h4 data-t="install.un.title">Uninstalling</h4>
+          <p data-t="install.un.body">Settings → Apps → Installed apps → Greater → Uninstall. Nothing is left behind in the registry, and your scan history is not stored anywhere.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="section section-alt">
+    <div class="wrap narrow">
+      <h2 class="section-title" data-t="faq.title">Questions people ask first</h2>
+
+      <details>
+        <summary data-t="faq.q1">Will it delete my Windows files?</summary>
+        <p data-t="faq.a1">No. Junk rules only match a fixed whitelist of scratch locations (temp folders, caches, logs, download leftovers). Page file, hibernation file, boot and BCD files, and System Volume Information are blocked outright. On a real system drive, the 155,543 files Greater proposed were all inside temp and cache folders — and every one of them was shown in a list before anything happened.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q2">Do I need to run it as administrator?</summary>
+        <p data-t="faq.a2">Scanning works fine without it. Installing needs administrator approval once because the app goes into Program Files for all users. Deleting files owned by SYSTEM (some Windows update leftovers, for example) needs elevation too — without it those specific files are reported as "could not be removed" and left alone.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q3">Why were some files not deleted?</summary>
+        <p data-t="faq.a3">Two reasons, both shown in the progress dialog. Either the file is open in a running program (close it and try again), or it is owned by SYSTEM and needs an elevated run. Greater never forces a delete past a lock.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q4">Can I undo a deletion?</summary>
+        <p data-t="faq.a4">Yes, if you used the Recycle Bin — restore from there as usual. Permanent delete is permanent; that is why it is a separate button with its own confirmation.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q5">How can it scan a million files so fast?</summary>
+        <p data-t="faq.a5">Greater uses the Windows directory enumeration API directly from many threads at once, with large-buffer fetches, instead of asking the shell for one file at a time. It skips reparse points, keeps long paths intact, and streams results to the window while the walk is still running.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q6">Does it send anything over the internet?</summary>
+        <p data-t="faq.a6">No. There is no telemetry, no analytics, no update check and no account. The app only talks to your own disk.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q7">Which languages does the interface support?</summary>
+        <p data-t="faq.a7">English, French, Spanish, German and Arabic — including full right-to-left layout for Arabic. You can switch language at any time from the settings button.</p>
+      </details>
+
+      <details>
+        <summary data-t="faq.q8">Is it free?</summary>
+        <p data-t="faq.a8">Yes — download and use it at no cost, with no account and no nag screen.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <img src="img/icon.png" alt="" width="64" height="64" class="cta-icon">
+      <h2 data-t="cta.title">Find out what is really using your disk</h2>
+      <p data-t="cta.sub">Five seconds to scan. A minute to reclaim tens of gigabytes.</p>
+      <a class="btn btn-primary btn-lg" href="https://github.com/aimesavoir/Greater-Site/releases/latest/download/Greater_1.0.0_x64-setup.exe">
+        <span data-t="cta.button">Download Greater for Windows</span>
+      </a>
+      <p class="meta" data-t="cta.meta">Version 1.0.0 · Windows 10 &amp; 11 (64-bit) · 4.8 MB</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <img src="img/icon.png" alt="" width="24" height="24">
+      <span>Greater</span>
+    </div>
+    <p class="foot-copy">
+      <span data-t="foot.by">Built by</span>
+      <b>Mohamed Baroudi</b> · MECATROTEC ·
+      <a href="mailto:baroudi.inc@gmail.com">baroudi.inc@gmail.com</a>
+    </p>
+    <p class="foot-links">
+      <a href="https://github.com/aimesavoir/Greater-Site/releases" data-t="foot.releases">All releases</a>
+      <a href="#top" data-t="foot.top">Back to top</a>
+    </p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
